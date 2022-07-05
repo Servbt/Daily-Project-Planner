@@ -25,47 +25,77 @@
 // else turn the future rows to green
 
 
-// use moment to grab day and display it
+// use moment to grab day and display it ~
 
 
 
 var saveButton1 = document.getElementById("button1");
 var descInput1 = document.getElementById("description1");
-var time = document.getElementById("currentDay");
+var currentTime = document.getElementById("currentDay");
+var container = document.getElementById("container");
+var timeBlock = document.querySelectorAll("time-block")
 
-//calls to display last inputted text
-renderLastRegistered();
 
-// current time
+
+let schedule = [];
+
+// I found this online.. it looks like a good way to cycle through hours for timeblocks but I'm not sure on how to implement it.
+function test() {
+    for (let i = 9; i < 18; i++) {
+        schedule.push({ hour: i });
+    }
+    for (let i = 0; i < schedule.length; i++) {
+        console.log(schedule[i]);
+    }
+}
+
+// I was thinking on using the above loops to compare the current time... but I'm having alot of trouble
+function compareTime(){
+    
+    if (moment().isSame()){
+        $(descInput1).addClass("present")
+        
+    } else if (moment().isSame("hour") != true) {
+        $(descInput1).addClass("past")
+    }   
+    
+};
+
+
+
+//displays current time using moment.js
 var now = setInterval (function() {
     var time = moment().format("MMM Do YYYY, h:mm:ss");
     $("#currentDay").text("Today is: " + time);
-},1000) 
+},1000); 
 
-//displays current time using moment.js
 
 // retrieves last inputted text and displays it
 function renderLastRegistered() {
-
+    
     var nine = localStorage.getItem("desc1"); 
     descInput1.textContent = nine;
-
+    
 };
 
 // actually gets the text put into local storage
 function saveText1(){
     
-var nine = document.querySelector("#description1").value;
-localStorage.setItem("desc1", nine);
-
-renderLastRegistered();
-console.log(nine);
+    var nine = document.querySelector("#description1").value;
+    localStorage.setItem("desc1", nine);
+    
+    renderLastRegistered();
+    console.log(nine);
 };
 
 
 // on click using jquery
 $(saveButton1).click(saveText1);
 
+//calls to display last inputted text
+renderLastRegistered();
+compareTime();
+test();
 
 
 
