@@ -2,8 +2,7 @@ So far I'm having a difficult time just even comparing the current time with the
 
 ## here is a current screenshot of the website
 
-!(./Assets/Capture.PNG)
-
+![the website.](./Assets/Capture.PNG)
 
 ## Here are some links pertaining to the assigment
 
