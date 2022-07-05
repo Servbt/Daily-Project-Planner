@@ -1,5 +1,5 @@
 
-console.log("hello");
+
 
 // Work Day Scheduler
 
@@ -26,3 +26,35 @@ console.log("hello");
 
 
 // use moment to grab day and display it
+
+
+
+var saveButton1 = document.getElementById("button1");
+var descInput1 = document.getElementById("description1");
+var time = document.getElementById("currentDay");
+
+renderLastRegistered();
+
+function renderLastRegistered() {
+
+    var nine = localStorage.getItem("desc1"); 
+    descInput1.textContent = nine;
+
+};
+
+function saveText1(){
+    
+var nine = document.querySelector("#description1").value;
+localStorage.setItem("desc1", nine);
+
+renderLastRegistered();
+console.log(nine);
+};
+
+$(saveButton1).click(saveText1);
+
+
+
+
+
+
